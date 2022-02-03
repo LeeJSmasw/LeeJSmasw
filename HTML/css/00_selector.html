@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    /* 전체 선택자 */
+    *{
+      color:  red;
+      
+    }
+    /* 요소 선택자 */
+    .green{
+      color: green;
+    }
+    #purple{
+      color: purple;
+    }
+    h2{
+      color: yellow;
+    }
+    /* 자식 결힘자 > 표시가 상위 하위 표시 /자식 바로 아래*/ 
+    .box > p{
+      font-size: 30;
+    }
+  /* 자손 결힘자 > 표시가 상위 하위 표시 /자손 자식의 아래 아래*/ 
+    .box p{
+      color:blue;
+    }
+  </style>
+</head>
+<body>
+  <h1 class="green">SSAFY</h1>
+  <h2>선택자 연습</h2>
+  <div class ="green box">
+    <!-- green 이라는 클래스와 box클래스와 둘  다 적용 -->
+    box content
+    <div>
+      <p>지역 목록</p>
+      <ul>
+        <li>서울</li>
+        <li id="purple">인천</li>
+        <li>서울</li>
+        <li>서울</li>
+      </ul>
+    </div>
+  </div>
+  <p> lorem + tab  : 랜덤한 문자열 저동 생성!</p>
+  <h3>Hello</h3>
+  <h4>css</h4>
+</body>
+</html>
