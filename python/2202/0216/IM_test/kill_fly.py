@@ -11,29 +11,30 @@ for tc in range(1, T + 1):
     max_value = 0
 
 
-    # 바꿔주는 기능
-    for _ in range((N - M) +1):
-        sum = 0
+    # 바꿔주는 기능 아 이제 알았다 이게 문제였던게 밑으로 가는 경우를 켓치를 못했었다!
+    for m in range((N - M) +1):
+        for n in range((N - M) +1):
+            sum = 0
         # i가 0 일때 0 1 0 0 1 1 두개
-        for j in range(M):
-            for k in range(M):
-                sum += fly_data[j + _][k + _]
-        if max_value < sum:
-            max_value = sum
+            for j in range(M):
+                for k in range(M):
+                    sum += fly_data[j + m][k + n]
+            if max_value < sum:
+                max_value = sum
 
     print(f'#{tc} {max_value}')
 
-    for square in range(N_M[0]):
-        fly_count = list(map(int, input().split()))
-        N_square.append(fly_count)
-    
+    # for square in range(N_M[0]):
+    #     fly_count = list(map(int, input().split()))
+    #     N_square.append(fly_count)
+    #
     # dead_fly = 0
     # max_fly = 0
     #
     #
     # # 전체 박스를 한번씩 훑어본다.
     # for width in range(N_M[0] - N_M[1] + 1):
-    #     for height in range(N_M[0] - N_M[1] + 1):
+    #     for height in range(N_M[0] - N_M[1] + 1):  #와 이제 이게 무슨 뜻인지 알 것 같기도 한게 
     #         for h in range(height, height + N_M[1]):
     #             dead_fly += sum(N_square[h][width:width + N_M[1]])
     #
