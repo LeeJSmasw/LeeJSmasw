@@ -18,7 +18,7 @@ for tc in range(1, T + 1):
         # i가 0 일때 0 1 0 0 1 1 두개
             for j in range(M):
                 for k in range(M):
-                    sum += fly_data[j + m][k + n]
+                    sum += fly_data[j + m][k + n] 
             if max_value < sum:
                 max_value = sum
 
@@ -34,8 +34,8 @@ for tc in range(1, T + 1):
     #
     # # 전체 박스를 한번씩 훑어본다.
     # for width in range(N_M[0] - N_M[1] + 1):
-    #     for height in range(N_M[0] - N_M[1] + 1):  #와 이제 이게 무슨 뜻인지 알 것 같기도 한게 
-    #         for h in range(height, height + N_M[1]):
+    #     for height in range(N_M[0] - N_M[1] + 1):  
+    #         for h in range(height, height + N_M[1]): #와 이제 이게 무슨 뜻인지 알 것 같기도 한데 소희님 천제네
     #             dead_fly += sum(N_square[h][width:width + N_M[1]])
     #
     #             # 죽은 파리의 갯수가 최대값보다 크면 교체하고 죽은파리 리셋
