@@ -87,7 +87,8 @@ for tc in range(1, T + 1):
     if result > fee[3]:
         result = fee[3]
     return
- 
+    
+ #성규님의 코드
 T = int(input())
  
 for tc in range(1, T+1):
