@@ -47,56 +47,28 @@ for tc in range(1, T + 1):
     
     
     '''
-    진하님 코드 오호 .. 
-    T = int(input())
-    for tc in range(1, 1 + T):
-    d, m, m3, y = map(int, input().split())
-    plan = [0]+list(map(int, input().split()))
-    result = [0]*13
+    현주님의 코드
+   def cost(n, ssum):
+      global ans
+      #함수를 돌려도 값이 지속되게 했음
+      
+    if n > 12:
+        if ans > ssum:
+            ans = ssum
+        return
+        
+    cost(n+1, ssum+arr[n] * c[0])
+    cost(n+1, ssum+c[1])
+    cost(n+3, ssum+c[2])
+    cost(n+12, ssum+c[3])
  
  
-    for i in range(1,13):
-        tmp = [0,0,y,y]
-        # 1일 이용권 사용
-        tmp[0] = result[i-1] + plan[i]*d
-        # 1달 이용권 사용
-        tmp[1] = result[i-1] + m
-        # 3달 이용권 사용
-        if i>=3:
-            tmp[2] = result[i-3] + m3
-            #이게 왜 성립할까나 
-        result[i] = min(tmp)
-    print(f'#{tc} {result[12]}')
-    
-    
-    def cal(month, day):
-      global result
-    # print(month, day)
- 
-    if month > 12:
-        if result > day:
-            result = day
-    else:
-        # 하루
-        cal(month + 1, day + plan[month]*fee[0])
-        # 한달
-        cal(month + 1, day + fee[1])
-        #세달
-        cal(month + 3, day + fee[2])
- 
-    if result > fee[3]:
-        result = fee[3]
-    return
-    
- #성규님의 코드
 T = int(input())
- 
 for tc in range(1, T+1):
-    fee = list(map(int, input().split()))
-    plan = [0] + list(map(int, input().split()))
-    result = 99999999999
+    c= list(map(int, input().split())) # 돈 케이스를 입력받고
+    arr = [0]+list(map(int, input().split())) # 달별 케이스를 입력밥는다. 
  
-    cal(0, 0)
-    print(f"#{tc} {result}")
-    
+    ans = 9999
+    cost(1, 0)
+    print('#{} {}'.format(tc, ans))
     '''
