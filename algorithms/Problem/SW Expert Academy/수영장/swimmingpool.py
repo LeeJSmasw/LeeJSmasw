@@ -1,39 +1,39 @@
-import sys
-
-sys.stdin = open('swimingpool.txt', 'r')
-
 T = int(input())
-
 for tc in range(1, T + 1):
     money_case = list(map(int, input().split()))
-    month_case = list(map(int, input().split()))
+    
 
-    result_case = [0, 0, 0, 0]
-    result_case[3] == money_case[3] #연간 가격
-
-    pri_number = 0 # 계산을 위해 임시값
-    cnt = 0 
-    continue_count = 0
-    for i in month_case: # 하루 가격
-        result_case[0] += i * month_case[0]
-        if i != 0: # 1달간 가격
-            result_case[1] += month_case[1]
+    result_case = [0, 0, money_case[3], money_case[3]] # 3번째를 0으로 두 면 최소값의 오류가 발생함
+    result = [0]*13
+    month = [0]+list(map(int, input().split()))
+    #month_case = list(map(int, input().split()))
+    #month = [0] + month_case
+    for i in range (1,13):
+        result_case[0] = result[i-1] + month[i]*money_case[0] # 하루
+        result_case[1] = result[i-1] + month[i]*money_case[1] # 한 달
+        if i>=3:
+            result_case[2] = result[i-3] + money_case[2] # 3달
+        result[i] = min(result_case)     
+    print(f'#{tc} {result[12]}')
+    
+    # continue_count = 0
+    # for i in month_case: # 하루 가격
+    #     result_case[0] += i * month_case[0]
+    #     if i != 0: # 1달간 가격
+    #         result_case[1] += month_case[1]
             
-            # 세 달간 속 가격 어떻게 하면 좋을까나 음 
+    #         # 세 달간 속 가격 어떻게 하면 좋을까나 음 
             
-    for i in month_case: # 하루 가격
-        result_case[0] += i * month_case[0]
-        if i != 0: # 1달간 가격
-            result_case[1] += month_case[1]
-            cnt += 1 
-            if cnt ==3:
-                cnt = 0
+    # for i in month_case: # 하루 가격
+    #     result_case[0] += i * month_case[0]
+    #     if i != 0: # 1달간 가격
+    #         result_case[1] += month_case[1]
+    #         cnt += 1 
+    #         if cnt ==3:
+    #             cnt = 0
                 
-                result_case[2]+= money_case[2]
-                
-                # case 1 :  3 3 3 3 3 3 3 문제 없음
-                # case 2 :  1 하루 치 한게 쌀수도
-                # case 3 :  1달 꺼한게 살 수도 
+    #             result_case[2]+= money_case[2]
+    # 생각해 보니 카운트 이런거 할 필요가 없는게 그냥 가격이 3달한거냐 1달에 한거냐 뭔가 더 비싼지만 보면 도ㅚㅁ 오케이ㅣ
                 
                 
         
@@ -72,3 +72,28 @@ for tc in range(1, T+1):
     cost(1, 0)
     print('#{} {}'.format(tc, ans))
     '''
+    
+    
+'''
+    #진하님 코드.. 이제 이해했어 이거 쩐다.
+    
+T = int(input())
+for tc in range(1, 1 + T):
+    d, m, m3, y = map(int, input().split())
+    plan = [0]+list(map(int, input().split()))
+    result = [0]*13
+ 
+ 
+    for i in range(1,13):
+        tmp = [0,0,0,y]
+        # 1일 이용권 사용
+        tmp[0] = result[i-1] + plan[i]*d
+        # 1달 이용권 사용
+        tmp[1] = result[i-1] + m
+        # 3달 이용권 사용
+        if i>=3:
+            tmp[2] = result[i-3] + m3
+        result[i] = min(tmp)
+    print(f'#{tc} {result[12]}')
+
+'''
