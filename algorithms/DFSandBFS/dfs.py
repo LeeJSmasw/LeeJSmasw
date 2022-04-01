@@ -19,3 +19,5 @@ graph =[
 #이렇게 방문했는지 안헀는지를 표시하기 위해 만든 visited 함수가 정말 좋은 아이디어 인듯!
 visited = [False] * 9
 dfs(graph,1,visited)
+
+#음료수 먹기
