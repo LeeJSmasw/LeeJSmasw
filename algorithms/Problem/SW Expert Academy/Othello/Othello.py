@@ -9,13 +9,13 @@ def over(a, b):
 
 
 T = int(input())
-for t in range(1, T + 1):\
-    
+for t in range(1, T + 1):
     N, M = map(int, input().split())  # 여기서 N과 M을 입력 받곱, N : 멤의 크기, M 플레이어가 돌을 놓는 횟수 --> 한 번 input을 봐볼까
-    data_map = [[0] * (N) for _ in range(N)]  # 0(N//2을 이용해 가운데에서 시작해, 0(첫 번째) 칸을 안쓰기 위해
-    first = N // 2  # 와 2분의 1일
+    data_map = [[0] * (N+1) for _ in range(N+1)]  # 0(N//2을 이용해 가운데에서 시작해, 0(첫 번째) 칸을 안쓰기 위해
+    first = N// 2  # 와 2분의 1일
     data_map[first][first] = data_map[first + 1][first + 1] = 2  # 이걸로 초반 백돌 설정, 파이써닉한 선언
     data_map[first + 1][first] = data_map[first][first + 1] = 1  # 이걸로 초반 흑돌 설정
+
     for m in range(M):  # m은 변수로 사용하고 M은 횟수를 의미함
         x, y, data = map(int, input().split())  # x, y  #아 여기서 map이란 함수를 못쓰게 되는구낭 오케이
         data_map[y][x] = data  # 받은걸로 하나 씩 표함
@@ -24,7 +24,7 @@ for t in range(1, T + 1):\
         for dy, dx in ((1, 0), (-1, 0), (0, 1), (0, -1), (1, 1), (-1, 1), (1, -1),
                        (-1, -1)):  # 튜플 8개를 반복하는데, 그안에 0번째 -> dx, 1번쨰 ->dy이에 때려 박는다.
             revers = []
-            for k in range(N):  # 근데 0부터, N으로서 선언해서 안해도 된는거 아닌가??/ 근데 왜 N번 반복할까??????????????????
+            for k in range(1,N+1):  # 근데 0부터, N으로서 선언해서 안해도 된는거 아닌가??/ 근데 왜 N번 반복할까??????????????????
                 new_y = y + dy * k
                 new_x = x + dx * k
 
@@ -43,11 +43,17 @@ for t in range(1, T + 1):\
     white = 0
     black = 0
     for bd in data_map:
-        white += bd.count(2)  # 백돌 개수 새기
-        black += bd.count(1)  # 흑돌 개수 새기 오케이
+        white += bd.count(2)  # 백돌 개수 세기
+        black += bd.count(1)  # 흑돌 개수 세기 오케이
     print(f'#{t} {black} {white}')
-    
+'''
+4일 경우 N//2 -> 2임으로
+0 1  2  3  이렇게 됨
+    ㅎ ㅂ
+    ㅂ ㅎ
 
+
+'''
 
 '''
 종훈님의 코드 // 분석해 보자 

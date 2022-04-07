@@ -1,6 +1,6 @@
 #시작 노드부터 우선적으로 가까운 노드로 우선적으로 탐색하는 알고리즘
 # 큐 자료구조
-
+# Breath First Search 
 from collections import deque
 
 def bfs(graph, start, visited):
@@ -31,3 +31,12 @@ graph = [
 visited = [False] *9
 
 bfs(graph, 1, visited)
+
+'''
+ q는 먼저 들어온걸 찾아준다
+ 1
+ 2   3 
+ 4 5  6 7 
+ 1 -> 2->3 -> 4->5 -> 6->7
+ 1234567
+    '''
