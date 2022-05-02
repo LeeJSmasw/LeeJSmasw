@@ -1,4 +1,5 @@
- import sys
+
+import sys
 sys.stdin = open('Othello.txt','r')
 
 
