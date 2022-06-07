@@ -48,4 +48,65 @@ ex)
 matplotlib는 아나콘다에 포함되어 있는 몯듈이며, 그래프나 점을 그리는 함수가 정의되어 있습니당
 
 %
- 
+ 곱셈기호 'X'는 생략한다 7x -> 7x
+ 숫자는 문자 앞에 쓴다 x7 ->  7x
+ 같은 문자의 곱셈에는 지수를 사용한다 xx >x^2
+ 알파벳 순서로 정렬한다
+ 문자 앞에 있는 1은 생략
+ 나눗샘은 분수로 나타낸다?? 
+
+ y = 3x-24
+
+ y= []
+ for x in range(1,11):
+  y.append(3*x -24)
+
+  y 
+  >>[-21,-18,-15,-12,-9,-6,-3,0,3,6]
+
+
+ex) 그래프로 그려보기
+
+%matplotlib inline
+import matplotlib.pyplot as plt
+
+x = list(range(1,11))
+y = []
+for i in range(10)):
+  y.append(3*x[i]-24)
+
+plt.plot(x,y)
+plt.grid(color='0.8')
+plt.show
+
+파이썬으로 연립방정식 풀기
+
+from sympy import Symbol, solve
+
+a = Symbol ('a')
+b = Symbol ('b')
+ex1 = a +b -1
+ex2 = 5*a + b -3
+
+선분을 수직으로 이등분 하는 선분 
+
+그림(0,1)과 (6,5)를 잇는 선분의 수직이등분선을 나타내는 식은 어떤 모양잉일까나
+
+1. 선분을 기울기를 구한다  << 두 점을 잇는 직선
+2. 선분의 중심을 구한다 << 이 절에 나온 칼럼을 참조한다
+3. 신분과 직교하는 직선의 기울기를 구한다 << 직교하는 두 직선
+4. 2에서 구한 좌표와 3에서 구한 기울기를 직선의 식에 대입해서 절편을 구한다
+
+%matplotlib inline
+import matplotlib.pyplot as plt
+import numpy as np
+
+a = (5-1) / (6-0)
+b= 1
+
+cx = +6 / 2 
+cy = 6 / 2
+
+a2 = -1 / a1
+b2 = cy -a2*cx
+
